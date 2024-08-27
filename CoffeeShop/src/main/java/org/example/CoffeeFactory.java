@@ -27,12 +27,20 @@ public class CoffeeFactory {
     }
     public static void addCoffee(int type, CoffeeRecipe recipe) {
         if (recipes.containsKey(type)) {
-            throw new IllegalArgumentException("Coffee type already exists");
+            throw new IllegalArgumentException("Kahve zaten eklenmiş");
         }
         recipes.put(type, recipe);
     }
 
     public static Map<Integer, CoffeeRecipe> getRecipes() {
         return Collections.unmodifiableMap(recipes);
+    }
+
+    public static void clearRecipes() {
+        recipes.clear();
+    }
+    public static void setRecipes(Map<Integer, CoffeeRecipe> newRecipes) {
+        recipes.clear();
+        recipes.putAll(newRecipes);
     }
 }

@@ -21,10 +21,14 @@ public class CoffeeRecipeTest {
         CoffeeRecipe recipe = new CoffeeRecipe("Espresso", Map.of("Espresso", 1));
         recipe.prepare();
 
+        String output = outContent.toString().replace("\r\n", "\n").trim();
         String expectedOutput = "Espresso seçtiniz. Espresso içerisinde \n" +
                 "1 doz Espresso içermektedir\n" +
                 "Afiyet Olsun\n";
-        assertEquals(expectedOutput, outContent.toString());
+
+        expectedOutput = expectedOutput.replace("\r\n", "\n").trim();
+
+        assertEquals(expectedOutput, output);
 
         System.setOut(System.out);
     }

@@ -1,5 +1,6 @@
 package org.example;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -11,9 +12,13 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class CoffeeFactoryTest {
     @BeforeEach
     public void setUp() {
-        CoffeeFactory.getRecipes().clear();
+        CoffeeFactory.clearRecipes();
     }
 
+    @AfterEach
+    public void tearDown() {
+        CoffeeFactory.clearRecipes();
+    }
     @Test
     public void testGetCoffee() {
         CoffeeRecipe espresso = new CoffeeRecipe("Espresso", Map.of("Espresso", 1));
@@ -35,8 +40,11 @@ public class CoffeeFactoryTest {
 
         CoffeeFactory.listCoffees();
 
+        String output = outContent.toString().replace("\r\n", "\n").trim();
+
         String expectedOutput = "1: Espresso\n";
-        assertEquals(expectedOutput, outContent.toString(), "List of coffees should match expected output");
+        expectedOutput = expectedOutput.replace("\r\n", "\n").trim();
+        assertEquals(expectedOutput, output);
 
         System.setOut(System.out);
     }
