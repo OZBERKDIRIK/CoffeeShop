@@ -5,10 +5,11 @@ import java.util.Map;
 
 public class CoffeeRecipe {
     private String name ;
+    private int price;
 
     private Map<String,Integer> ingredients;
 
-    public CoffeeRecipe(String name , Map<String, Integer> ingredients){
+    public CoffeeRecipe(String name , int price , Map<String, Integer> ingredients){
         if (name == null || name.isEmpty()) {
             throw new IllegalArgumentException("Kahve ismi boş veya null olamaz");
         }
@@ -17,6 +18,7 @@ public class CoffeeRecipe {
         }
         this.name=name;
         this.ingredients=ingredients;
+        this.price=price;
     }
 
     public String getName(){
@@ -29,5 +31,9 @@ public class CoffeeRecipe {
             System.out.println(amount + " doz " + ingredient + " içermektedir");
         });
         System.out.println("Afiyet Olsun");
+    }
+
+    public int getPrice(){
+        return this.price;
     }
 }
