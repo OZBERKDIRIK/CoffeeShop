@@ -1,5 +1,6 @@
 package org.example;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -17,5 +18,21 @@ public class CoffeeFactory {
     }
      public static CoffeeRecipe getCoffee(int coffeeType) {
         return recipes.get(coffeeType);
+    }
+
+    public static void listCoffees() {
+        recipes.forEach((key, recipe) -> {
+            System.out.println(key + ": " + recipe.getName());
+        });
+    }
+    public static void addCoffee(int type, CoffeeRecipe recipe) {
+        if (recipes.containsKey(type)) {
+            throw new IllegalArgumentException("Coffee type already exists");
+        }
+        recipes.put(type, recipe);
+    }
+
+    public static Map<Integer, CoffeeRecipe> getRecipes() {
+        return Collections.unmodifiableMap(recipes);
     }
 }
