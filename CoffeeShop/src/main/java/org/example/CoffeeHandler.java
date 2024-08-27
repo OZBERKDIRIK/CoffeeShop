@@ -7,9 +7,9 @@ public abstract class CoffeeHandler {
         this.nextHandler=nextHandler;
     }
 
-    public void handlerRequest(int coffeeType){
+    public void handleRequest(int coffeeType){
         if(nextHandler != null){
-            nextHandler.handlerRequest(coffeeType);
+            nextHandler.handleRequest(coffeeType);
         }
     }
     protected abstract void prepareCoffee();
