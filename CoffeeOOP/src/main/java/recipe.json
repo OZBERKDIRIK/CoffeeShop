@@ -1,0 +1,43 @@
+[
+  {
+    "name": "Espresso",
+    "ingredients": {}
+  },
+  {
+    "name": "Double Espresso",
+    "ingredients": {
+      "Espresso": 2
+    }
+  },
+  {
+    "name": "Cappuccino",
+    "ingredients": {
+      "Espresso": 1,
+      "Milk": 2,
+      "Milk Foam": 2
+    }
+  },
+  {
+    "name": "Latte",
+    "ingredients": {
+      "Espresso": 1,
+      "Milk": 3,
+      "Milk Foam": 1
+    }
+  },
+  {
+    "name": "Mocha",
+    "ingredients": {
+      "Espresso": 1,
+      "Milk": 1,
+      "Milk Foam": 1,
+      "Hot Chocolate": 2
+    }
+  },
+  {
+    "name": "Hot Water",
+    "ingredients": {
+      "Hot Water": 5
+    }
+  }
+]
